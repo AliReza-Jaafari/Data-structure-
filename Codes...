@@ -1,1 +1,288 @@
+class C_Queue:
+    def __init__(self, max = 100):
+        self.list = [] * max
+        self.front = -1
+        self.rear = -1
+    def  insert(self , x):
+        if (self.rear +1) % len(self.list) == self.front:
+            print("Queue is full")
+            return
+        if  self.front == -1:
+            self.front = 0
+            self.rear = 0
+            self.list[0] = x
+            return
+        self.rear=(self.rear +1) % len(self.list)
+        self.list[self.rear] = x
+    def delete(self):
+        if self.front == -1:
+            print("Queue is empty")
+            return
+        if self.front == self.rear:
+            k = self.list[self.front]
+            self.front = -1
+            self.rear = -1
+            return k
+        k = self.list[self.front]
+        self.front = (self.front +1) % len (self.list)
+        return k
+    def is_empty(self):
+        return self.front == -1
+    
+    def is_full(self):
+        return (self.rear +1) % len (self.list) == self.front
+    
+    def show_valid(self):
+        if self.rear >= self.front:
+            for i in range(self.front , self.rear+1 , 1):
+                print(self.list[i])
+        else:
+            for i in range(self.front , len(self.list) , 1):
+                print(self.list[i])
+            for i in range(self.rear +1):
+                print(self.list[i])
+    def show_invalid(self):
+        if self.front == -1:
+            for i in range(len(self.list)):
+                print(self[i])
+                return
+            i = (self.rear+1) % len (self.list)
+            while i != self.front:
+                print(self.list[i])
+                i = (i +1) % len (self.list)
+    def Find(self , x):
+        if self.is_empty():
+            return
+        i = self.front
+        if self.list[i] == x:
+            return i
+        while i != self.rear:
+            i = (i +1) % len(self.list)
+            if self.list[i] == x:
+                return i
+            
+    def raplace(self , x , y):
+        if self.is_empty():
+            return
+        i = self.front
+        if self.list[i] == x:
+            self.list[i] = y
+        while i != self.rear:
+            i = (i +1) % len (self.list)
+            if self.list[i] == x:
+                self.list[i] = y
+
+
+class Queue:
+    def __init__(self ,max = 100):
+        self.list=[None]* max
+        self.front = -1
+        self.rear = -1
+    def insert(self,x):
+        if self.rear >= len(self.list) -1 :
+            print("Queue is Full")
+            return
+        if  self.front == -1 :
+            self.front+= 1 
+            self.rear+= 1
+            self.list[list.rear] = x
+            return
+        self.rear+= 1 
+        self.list[self.rear] = x
+    def Del(self):
+        if self.front == -1 :
+            print("Queue is empty")
+            return     
+        if  self.front == self.rear :
+            k = self.list[self.front]
+            self.front = -1
+            self.rear = -1
+            return k
+        k = self.list[self.front]
+        self.front+= 1
+        return k
+    
+test = Queue(3)
+test.insert(57)
+test.insert(32)
+test.insert(44)
+test.insert(39) #Queue is Full
+test.Del()
+test.insert(39) #Queue is Full
+
+
+class stack : 
+    def __init__(self , limit = 1000):
+        self.st=[]
+        self.lim = limit
+    def push(self , x):
+        if len(self.st) >= self.lim:
+           print("stack is full")
+           return -1
+        self.st.append(x)
+    def pop(self):
+        if len(self.st) == 0 :
+            print("stack is empty")
+            return -1
+        return self.st.pop()
+    def peek(self):
+        if len(self.st) == 0 :
+            print("stack is empty")
+            return -1
+        return self.st[-1]
+
+
+def find(self,x):
+    for i in range(len(self.st)):
+        if self.st[i] == x :
+           print(i)
+#"اولین شامل  (x) را برگرداند"
+def find1(self,x):
+    for i in range(len(self.st)):
+        if self.st[i] == x :
+           print(i)
+           return
+"اخرین ایندکس شامل (x) را چاپ کند"
+def find2(self,x):
+    for i in range(len(self.st)-1,-1,-1) :
+        if self.st[i] == x :
+            print(i)
+            return
+def find2_n(self,x):
+    for i in range(len(self.st)):
+        if self.st[i] == x :
+            p=i
+    print(p)                
+def find2_n(self,x):
+    list=[]
+    for i in range(len(self.st)):
+        if self.st[i] == x :
+            list.append(i)
+    print(list[2])
+def replace(self,x,y):
+    for i in range(len(self.st)):
+        if self.st[i] == x :
+            self.st[i]=y
+
+
+def BFS(graph , start):
+    queue = [start]
+    visited = {start}
+    while queue:
+        vertex = queue.pop(0)
+        for ne in graph[vertex]:
+            visited.add(ne)
+            queue.append(ne)
+    return visited
+def DFS(graph , start , visited):
+    visited[start] = True
+    for ne in graph[start]:
+        if not visited[ne]:
+            DFS(graph , ne , visited)
+
+
+
+
+
+
+
+
+
+def sort1(A):
+    B = [] *len(A)
+    for i in range(len(A)):
+        for j in range(1 , len(A)):
+            if A[j] < min:
+                min = A[j]
+                k = j
+        B[i] = min
+        A[k] = float("inf")
+    return B 
+def Bubble(A):
+    for i in range(len(A)-1):
+        for j in range(len(A)-1):
+            if A[j] > A[j+1]:
+                A[j], A[j+1] = A[j+1] , A[j]
+
+
+a = 5
+for i in range (n):
+    p=t
+    t=l+6
+l = 2 + l
+F(n) = 2 n + 2
+6:"تکه برنامه ای بنویسید که دارای تابع پیچیدگی زمانی زیر باشد"
+F(n) = 3n**2 + 4n-8 ____ 4(n-2)
+    for i in range(n):
+        for i in range(n):
+            print(i)
+            print(j)
+            print(i+j)
+    for i in range(n-2)
+        a=b 
+        b=c 
+        c=d 
+        d=e
+#for i in range(n):
+#    for i in range(n):
+#        p=k 
+#    t=s 
+#F(n) = n**2 + n        
+# n**2 به معنای (n) به توان دو
+7:"تابع پیجیدگی زمانی تکه برنامه زیر را بنویسید"
+for i in range(0,n+3,3):
+    t=t+5 
+    l=2*l 
+    F(n) = 2/3(n+3) = 0.6 n + 2    
+8:"فرمول"
+for i in range(start,stop,step):
+    k = ...
+F(n) = k/step (stop - start)
+"تمرین"
+for i in range(10,2*n+6,5):
+    p=k 
+    k=s 
+    j=l 
+F(n) = 3/5(2 n-4) = 1.2 n - 2.4
+9:"کوییز"
+for i in range(n):
+    for j in range(i,n,1):
+        k=p 
+        print(k)
+        print(p)
+n+(n-1)+(n-2)+...+1
+1 + 2 + 3 + ...+ n 
+(n+1)+(n+1)+(n+1)+...+(n+1)
+= n (n+1) / 2
+F(n) = 3/2(n)(n+1)
+     = 1.5 n**2 + 1.5 n 
+10:"تکه برنامه ای بنویسید که دارای تابع پیچیدگی زمانی زیر باشد"
+F(n) = 1.3 n**2 + 6 n + 2
+      4/3 n**2 + 6 n + 2
+for i in range(n):
+    for j in range(0,n,3):
+        ...
+        ...
+        ...
+        ...  
+    ...
+    ...
+    ...
+    ...
+    ...
+    ...    
+...
+
+
+
+
+
+
+while n > 1 :
+    n = n // 2
+F(n) = log n 2 
+2**7 = 128
+log 2**7 = logn = 7
+...
+
 
