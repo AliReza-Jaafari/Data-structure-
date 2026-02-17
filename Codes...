@@ -286,3 +286,171 @@ log 2**7 = logn = 7
 ...
 
 
+
+class Nude:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Linklist:
+    def __init__(self):
+        self.head = None
+    
+    def  display(self):
+        t = self.head
+        while t != None:
+            print(t.data, end= "->")
+            t = t.next
+        print("Null")
+    
+    def Instart(self,newdata):
+        n = Nude(newdata)
+        n.next = self.head
+        self.head = n
+    
+    def Inend(self,newdata):
+        n = Nude(newdata)
+        if self.head is None:
+            self.head = n
+            return
+        t = self.head
+        while(t.next):
+            t = t.next
+        t.next = n
+    
+    def Inafter(self,m,newdata):
+        if m is None:
+            return
+        n = Nude(newdata)
+        n.next = m.next
+        m.next = n
+
+
+    def RemoveNude(self,key):
+        t = self.head
+
+        if t is not None:
+            if(t.data == key):
+                self.head = t.next
+                t = None
+                return
+        p = None
+        while t is not None:
+            if t.data == key:
+                break
+
+            p = t
+            t = t.next
+
+        if t == None:
+            return
+        
+        p.next = t.next
+        t = None
+
+
+            
+            
+                
+
+         
+        class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class dlinklist:
+    def __init__(self):
+        self.head = None
+
+    def instart(self,data):
+        n = Node(data)
+        n.next = self.head
+        if self.head is not None:
+            self.head.prev = n
+        self.head = n
+
+
+    def inend(self,V):
+        n = Node(V)
+        if self.head is None:
+            self.head = n
+            return
+        t = self.head
+        while t.next is not None:
+            t = t.next
+        t.next = n
+        n.prev = t
+
+    def inafter(self,x,d):
+        n = Node(d)
+        n.next = x.next
+        x.next = n
+        n.prev = x
+        if n.next is not None:
+            n.next.prev = n
+
+    def delete(self, data):
+        t = self.head
+
+        # Case 1: empty list
+        if t is None:
+            return
+
+        # Case 2: delete head
+        if t.data == data:
+            # only one node
+            if t.next is None:
+                self.head = None
+                return
+            # more than one node
+            self.head = t.next
+            self.head.prev = None
+            t.next = None
+            return
+
+        # Case 3: delete middle or last
+        while t is not None and t.data != data:
+            t = t.next
+
+        if t is None:
+            return
+
+        # Case 4: delete last node
+        if t.next is None:
+            t.prev.next = None
+            t.prev = None
+            return
+
+        # Case 5: delete middle node
+        t.prev.next = t.next
+        t.next.prev = t.prev
+        t.next = None
+        t.prev = None
+
+
+
+
+
+        
+
+        
+
+        
+
+
+
+
+
+
+        
+        
+        
+
+        
+
+    
+
+
+
